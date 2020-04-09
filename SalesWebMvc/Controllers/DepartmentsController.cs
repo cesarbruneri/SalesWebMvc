@@ -22,7 +22,7 @@ namespace SalesWebMvc.Controllers
         // GET: Departments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.DepartmentModel.ToListAsync());
+            return View(await _context.Department.ToListAsync());
         }
 
         // GET: Departments/Details/5
@@ -33,7 +33,7 @@ namespace SalesWebMvc.Controllers
                 return NotFound();
             }
 
-            var departmentModel = await _context.DepartmentModel
+            var departmentModel = await _context.Department
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (departmentModel == null)
             {
@@ -73,7 +73,7 @@ namespace SalesWebMvc.Controllers
                 return NotFound();
             }
 
-            var departmentModel = await _context.DepartmentModel.FindAsync(id);
+            var departmentModel = await _context.Department.FindAsync(id);
             if (departmentModel == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace SalesWebMvc.Controllers
                 return NotFound();
             }
 
-            var departmentModel = await _context.DepartmentModel
+            var departmentModel = await _context.Department
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (departmentModel == null)
             {
@@ -139,15 +139,15 @@ namespace SalesWebMvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var departmentModel = await _context.DepartmentModel.FindAsync(id);
-            _context.DepartmentModel.Remove(departmentModel);
+            var departmentModel = await _context.Department.FindAsync(id);
+            _context.Department.Remove(departmentModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DepartmentModelExists(int id)
         {
-            return _context.DepartmentModel.Any(e => e.ID == id);
+            return _context.Department.Any(e => e.ID == id);
         }
     }
 }
