@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace SalesWebMvc.Models
 {
     public class DepartmentModel
-    {
+    {           
         public int ID { get; set; }
         public string Name { get; set; }
         public ICollection<SellerModel> Sellers { get; set; } = new List<SellerModel>();
@@ -14,6 +16,11 @@ namespace SalesWebMvc.Models
         public DepartmentModel()
         {
 
+        }
+
+        public DepartmentModel(string name)
+        {
+            Name = name;
         }
 
         public DepartmentModel(int iD, string name)

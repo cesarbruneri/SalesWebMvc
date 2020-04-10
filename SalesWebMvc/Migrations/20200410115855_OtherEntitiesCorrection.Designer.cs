@@ -10,8 +10,8 @@ using SalesWebMvc.Data;
 namespace SalesWebMvc.Migrations
 {
     [DbContext(typeof(SalesWebMvcContext))]
-    [Migration("20200409160238_OtherEntities")]
-    partial class OtherEntities
+    [Migration("20200410115855_OtherEntitiesCorrection")]
+    partial class OtherEntitiesCorrection
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
